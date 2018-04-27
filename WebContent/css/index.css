@@ -1,0 +1,42 @@
+/* CSS Document */
+
+.blue{
+	background-color:#3CF
+}
+
+.right{
+	float:right;
+	margin-right:10%;
+}
+.btn_right{
+	float:right;
+	margin:5px;
+
+}
+
+.top5{
+	margin-top:5%;
+}
+
+.maxwidth{
+	max-width:320px;
+}
+.minwidth{
+	min-width:240px;
+}
+
+.width50{
+	width:20%;
+	margin-left:40%;
+	margin-right:40%;
+}
+.three {
+	 height: 30px;
+	 margin-top: 10px;
+	 margin-bottom: 10px;
+	 line-height: 5px;
+}
+.five {
+	width:140px;
+	border-width:0px
+}

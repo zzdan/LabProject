@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="mess" />
+	<!-- 开启动态方法 -->
+	<!-- <constant name="struts.enable.DynamicMethodInvocation" value="true" 
+		/> -->
+	<!-- 指定国际化编码所使用的字符集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="900000000" />
+	<!-- 所有的Action定义都应该放在package下 -->
+	<package name="monitor" namespace="/monitor" extends="json-default">
+		<action name="showhealth" class="action.MonitorAction" method="showhealth">
+			<result name="success">/monitor/showhealth.jsp</result>
+		</action>
+		<action name="get_all_status" class="action.MonitorAction"
+			method="get_all_status">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action>
+		<action name="get_mds_list" class="action.MonitorAction"
+			method="get_mds_list">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action>
+		<action name="showmon" class="action.MonitorAction" method="showmon">
+			<result name="success">/monitor/showmon.jsp</result>
+		</action>
+		<action name="showosd" class="action.MonitorAction" method="showosd">
+			<result name="success">/monitor/showosd.jsp</result>
+		</action>
+		<action name="showmds" class="action.MonitorAction" method="showmds">
+			<result name="success">/monitor/showmds.jsp</result>
+		</action>
+		<action name="showpool" class="action.MonitorAction" method="showpool">
+			<result name="success">/monitor/showpool.jsp</result>
+		</action>
+		<action name="showpg" class="action.MonitorAction" method="showpg">
+			<result name="success">/monitor/showpg.jsp</result>
+		</action>
+		<action name="showvm" class="action.MonitorAction" method="showvm">
+		    <result name="success">/monitor/showvm.jsp</result>
+		</action>	
+		<!-- <action name="{1}" class="action.MonitorAction" method="{1}"> <result 
+			name="success">/monitor/{1}.jsp</result> </action> -->
+	</package>
+	<package name="manage" namespace="/manage" extends="json-default">
+		<action name="manageosd" class="action.ManageAction" method="manageosd">
+			<result name="success">/manage/operateosd.jsp</result>
+		</action>
+		<action name="managepool" class="action.ManageAction" method="getpoolinfo">
+			<result name="success">/manage/operatepool.jsp</result>
+		</action>
+		<action name="newpool" class="action.ManageAction"
+			method="newpool">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action >
+		<action name="managecrushmap" class="action.ManageAction" method="getcrushmap">
+			<result name="success">/manage/operatecrushmap.jsp</result>
+		</action>
+		<action name="removepool" class="action.ManageAction"
+			method="removepool">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action >
+		<action name="newosd" class="action.ManageAction" method="newosd">
+			<result name="success"></result>
+		</action>
+		<action name="managerbd" class="action.ManageAction" method="managerbd">
+			<result name="success">/manage/operaterbd.jsp</result>
+		</action>
+		<action name="managevms" class="action.ManageAction" method="managevms">
+			<result name="success">/manage/operatevms.jsp</result>
+		</action>
+		<action name="manageimage" class="action.ManageAction" method="manageimage">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action>
+		<action name="managevolumes" class="action.ManageAction" method="managevolumes">
+			<result name="success">/manage/operatevolumes.jsp</result>
+		</action>
+		<action name="get_rbd_list" class="action.ManageAction"
+			method="get_rbd_list">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action >
+		<action name="newrbd" class="action.ManageAction"
+			method="newrbd">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action >
+		<action name="show_pool" class="action.ManageAction"
+			method="showpool">
+			<result name="success" type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="root">json</param>
+			</result>
+		</action >
+	</package>
+	<package  name="ajax" extends="json-default">
+		<action name="newvms" class="action.NewvmsAction">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="newvm" class="action.NewvmAction">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="newvolume" class="action.NewvolumeAction">
+            <result name="success" type="json"></result>
+        </action>
+	</package>
+	
+</struts>
